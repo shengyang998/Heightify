@@ -31,7 +31,6 @@ struct ContentView: View {
     @State private var personHeight: String = ""
     @State private var currentChairHeight: String = ""
     @State private var currentDeskHeight: String = ""
-    @State private var showingAnalysis = false
     @FocusState private var focusedField: Field?
     
     private enum Field {
@@ -222,8 +221,7 @@ struct ContentView: View {
                         }
                         #endif
                         
-                        if showingAnalysis,
-                           let chairHeight = currentChairHeightValue,
+                        if let chairHeight = currentChairHeightValue,
                            let deskHeight = currentDeskHeightValue {
                             Text(HeightCalculator.analyzeCurrentSetup(
                                 personHeight: height,
@@ -234,22 +232,6 @@ struct ContentView: View {
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        
-                        Button(action: {
-                            withAnimation {
-                                showingAnalysis = true
-                                focusedField = nil // Dismiss keyboard
-                            }
-                        }) {
-                            Text("Analyze Setup")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.accentColor)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                        .buttonStyle(.plain)
-                        .disabled(currentChairHeightValue == nil || currentDeskHeightValue == nil)
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
