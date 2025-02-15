@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "DALL·E 2025-02-15 17.00.51 - A minimalist app icon depicting a stylized silhouette of a person sitting comfortably at a desk and chair. The person is reaching towards a laptop scr.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -73,6 +74,7 @@
       "size" : "512x512"
     },
     {
+      "filename" : "DALL·E 2025-02-15 17.00.51 - A minimalist app icon depicting a stylized silhouette of a person sitting comfortably at a desk and chair. The person is reaching towards a laptop scr 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

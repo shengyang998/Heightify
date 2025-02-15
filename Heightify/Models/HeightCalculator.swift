@@ -37,30 +37,6 @@ class HeightCalculator {
         )
     }
     
-    /// Get the recommended height range for furniture
-    /// - Parameter personHeight: Height of the person in centimeters
-    /// - Returns: String containing recommended height ranges
-    static func getHeightRanges(personHeight: Double) -> String {
-        let optimal = calculateOptimalHeights(personHeight: personHeight)
-        
-        return """
-        Recommended height ranges:
-        
-        Chair height:
-        - Minimum: \(String(format: "%.1f", optimal.chairHeight - 2)) cm
-        - Optimal: \(String(format: "%.1f", optimal.chairHeight)) cm
-        - Maximum: \(String(format: "%.1f", optimal.chairHeight + 2)) cm
-        
-        Desk height:
-        - Minimum: \(String(format: "%.1f", optimal.deskHeight - 2.5)) cm
-        - Optimal: \(String(format: "%.1f", optimal.deskHeight)) cm
-        - Maximum: \(String(format: "%.1f", optimal.deskHeight + 2.5)) cm
-        
-        Note: These are recommendations based on ergonomic standards.
-        Adjust within the ranges for personal comfort.
-        """
-    }
-    
     /// Check if current furniture heights are within ergonomic ranges
     /// - Parameters:
     ///   - personHeight: Height of the person in centimeters
