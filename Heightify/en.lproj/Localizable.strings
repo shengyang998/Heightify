@@ -34,4 +34,23 @@
 "measure_again" = "Measure Again";
 "use_measurement" = "Use This Measurement";
 "current_chair" = "Current Chair Height";
-"current_desk" = "Current Desk Height"; 
+"current_desk" = "Current Desk Height";
+
+/* AR Measurement Errors & Guidance */
+"ar_not_available" = "AR functionality is not available or camera permissions not granted";
+"ar_not_available_visionpro" = "AR measurement is not available on Vision Pro";
+"ar_error_no_plane" = "Unable to detect a surface. Please try a well-lit area.";
+"ar_error_no_hit" = "No surface detected. Please aim at a flat surface.";
+"error_title" = "Error";
+"ok_button" = "OK";
+
+/* AR Measurement Adjustment */
+"adjustment_guide" = "Tap on green or red marker to adjust";
+"finish_adjustment" = "Finish Adjustment";
+"adjust_measurement" = "Adjust Measurement Points";
+
+/* AR Guide */
+"ar_guide_title" = "AR Measurement Guide";
+"ar_guide_step1" = "Find a surface and tap to place start point (green marker)";
+"ar_guide_step2" = "Tap to place end point (red marker)";
+"ar_guide_step3" = "System will display measurement line (blue) and distance"; 

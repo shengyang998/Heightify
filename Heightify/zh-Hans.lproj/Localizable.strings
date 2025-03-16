@@ -55,4 +55,23 @@
 "measure_again" = "重新测量";
 "use_measurement" = "使用此测量结果";
 "current_chair" = "当前椅子高度";
-"current_desk" = "当前桌子高度"; 
+"current_desk" = "当前桌子高度";
+
+/* AR Measurement Errors & Guidance */
+"ar_not_available" = "AR功能不可用或相机权限未授予";
+"ar_not_available_visionpro" = "Vision Pro设备不支持AR测量功能";
+"ar_error_no_plane" = "无法检测到平面，请在光线充足的区域尝试";
+"ar_error_no_hit" = "未检测到平面，请对准平整表面";
+"error_title" = "错误";
+"ok_button" = "确定";
+
+/* AR Measurement Adjustment */
+"adjustment_guide" = "点击绿色或红色标记点进行调整";
+"finish_adjustment" = "完成调整";
+"adjust_measurement" = "调整测量点";
+
+/* AR Guide */
+"ar_guide_title" = "使用AR测量指南";
+"ar_guide_step1" = "找到一个平面，点击起点位置（显示绿色球）";
+"ar_guide_step2" = "点击终点位置（显示红色球）";
+"ar_guide_step3" = "系统将显示测量线（蓝色）和距离值"; 
