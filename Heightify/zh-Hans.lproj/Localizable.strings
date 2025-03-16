@@ -1,0 +1,48 @@
+/* App Title */
+"Heightify" = "高度助手";
+
+/* App Description */
+"Calculate optimal furniture heights for ergonomic comfort" = "计算符合人体工程学的最佳家具高度";
+
+/* Section Headers */
+"Your Measurements" = "您的测量";
+"Recommended Heights" = "推荐高度";
+"Analyze Your Current Setup" = "分析当前设置";
+
+/* Input Fields */
+"Your height" = "您的身高";
+"Height" = "高度";
+"cm" = "厘米";
+
+/* Measurement Labels */
+"Chair Height" = "椅子高度";
+"Desk Height" = "桌子高度";
+"Current Chair Height" = "当前椅子高度";
+"Current Desk Height" = "当前桌子高度";
+
+/* Range Text */
+"Range: " = "范围：";
+
+/* Notes */
+"Note: Adjust within these ranges for personal comfort." = "注意：请在这些范围内根据个人舒适度进行调整。";
+
+/* Furniture Items */
+"chair" = "椅子";
+"desk" = "桌子";
+
+/* Height Status */
+"too high" = "太高";
+"too low" = "太低";
+"higher" = "升高";
+"lower" = "降低";
+
+/* Analysis Messages */
+"✅ Your %@ height is optimal" = "✅ 您的%@高度是最佳的";
+"⚠️ Consider adjusting your %@ %@ by %.1f cm" = "⚠️ 建议将您的%@%@ %.1f 厘米";
+"❌ Your %@ is %@ by %.1f cm" = "❌ 您的%@%@ %.1f 厘米";
+
+/* Analysis Template */
+"Current Setup Analysis:\n\nChair Height:\n- Current: %.1f cm\n- Optimal: %.1f cm\n%@\n\nDesk Height:\n- Current: %.1f cm\n- Optimal: %.1f cm\n%@" = "当前设置分析：\n\n椅子高度：\n- 当前：%.1f 厘米\n- 最佳：%.1f 厘米\n%@\n\n桌子高度：\n- 当前：%.1f 厘米\n- 最佳：%.1f 厘米\n%@";
+
+/* Furniture Heights Description */
+"Recommended heights:\n- Chair height: %.1f cm\n- Desk height: %.1f cm" = "推荐高度：\n- 椅子高度：%.1f 厘米\n- 桌子高度：%.1f 厘米"; 

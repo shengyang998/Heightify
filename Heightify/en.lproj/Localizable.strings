@@ -1,0 +1,27 @@
+/* App Title */
+"Heightify" = "Heightify";
+
+/* App Description */
+"Calculate optimal furniture heights for ergonomic comfort" = "Calculate optimal furniture heights for ergonomic comfort";
+
+/* Section Headers */
+"Your Measurements" = "Your Measurements";
+"Recommended Heights" = "Recommended Heights";
+"Analyze Your Current Setup" = "Analyze Your Current Setup";
+
+/* Input Fields */
+"Your height" = "Your height";
+"Height" = "Height";
+"cm" = "cm";
+
+/* Measurement Labels */
+"Chair Height" = "Chair Height";
+"Desk Height" = "Desk Height";
+"Current Chair Height" = "Current Chair Height";
+"Current Desk Height" = "Current Desk Height";
+
+/* Range Text */
+"Range: " = "Range: ";
+
+/* Notes */
+"Note: Adjust within these ranges for personal comfort." = "Note: Adjust within these ranges for personal comfort."; 
