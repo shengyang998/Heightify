@@ -24,4 +24,14 @@
 "Range: " = "Range: ";
 
 /* Notes */
-"Note: Adjust within these ranges for personal comfort." = "Note: Adjust within these ranges for personal comfort."; 
+"Note: Adjust within these ranges for personal comfort." = "Note: Adjust within these ranges for personal comfort.";
+
+/* AR Measurement */
+"measure_with_ar" = "Measure with AR";
+"measurement_result" = "Measurement";
+"tap_to_start_measurement" = "Tap to place start point";
+"tap_to_end_measurement" = "Tap to place end point";
+"measure_again" = "Measure Again";
+"use_measurement" = "Use This Measurement";
+"current_chair" = "Current Chair Height";
+"current_desk" = "Current Desk Height"; 

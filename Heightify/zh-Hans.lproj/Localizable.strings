@@ -45,4 +45,14 @@
 "Current Setup Analysis:\n\nChair Height:\n- Current: %.1f cm\n- Optimal: %.1f cm\n%@\n\nDesk Height:\n- Current: %.1f cm\n- Optimal: %.1f cm\n%@" = "当前设置分析：\n\n椅子高度：\n- 当前：%.1f 厘米\n- 最佳：%.1f 厘米\n%@\n\n桌子高度：\n- 当前：%.1f 厘米\n- 最佳：%.1f 厘米\n%@";
 
 /* Furniture Heights Description */
-"Recommended heights:\n- Chair height: %.1f cm\n- Desk height: %.1f cm" = "推荐高度：\n- 椅子高度：%.1f 厘米\n- 桌子高度：%.1f 厘米"; 
+"Recommended heights:\n- Chair height: %.1f cm\n- Desk height: %.1f cm" = "推荐高度：\n- 椅子高度：%.1f 厘米\n- 桌子高度：%.1f 厘米";
+
+/* AR Measurement */
+"measure_with_ar" = "AR测量";
+"measurement_result" = "测量结果";
+"tap_to_start_measurement" = "点击放置起点";
+"tap_to_end_measurement" = "点击放置终点";
+"measure_again" = "重新测量";
+"use_measurement" = "使用此测量结果";
+"current_chair" = "当前椅子高度";
+"current_desk" = "当前桌子高度"; 
