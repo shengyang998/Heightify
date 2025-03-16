@@ -6,6 +6,7 @@ struct ARViewContainer: UIViewRepresentable {
     var measurementController: ARMeasurementController
     @Binding var showError: Bool
     @Binding var errorMessage: String
+    var languageSettings: LanguageSettings
     
     func makeUIView(context: Context) -> ARView {
         #if os(visionOS)
@@ -116,7 +117,8 @@ struct ARMeasurementView: View {
         ZStack {
             ARViewContainer(measurementController: measurementController,
                           showError: $showError,
-                          errorMessage: $errorMessage)
+                          errorMessage: $errorMessage,
+                          languageSettings: languageSettings)
                 .edgesIgnoringSafeArea(.all)
             
             // 顶部控制区域
