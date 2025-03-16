@@ -37,6 +37,9 @@ struct ContentView: View {
     @State private var refreshID = UUID() // Used to force view refresh
     @State private var isChangingLanguage = false // Animation state
     @State private var flipDegree = 0.0 // 用于控制翻转动画
+    @StateObject private var arMeasurementController = ARMeasurementController()
+    @State private var showARMeasurement = false
+    @State private var selectedMeasurementType: MeasurementType = .chairHeight
     
     private enum Field {
         case personHeight, chairHeight, deskHeight
@@ -160,6 +163,45 @@ struct ContentView: View {
                 .opacity(isChangingLanguage ? 0 : 1)
                 .scaleEffect(isChangingLanguage ? 0.98 : 1)
                 .animation(.easeInOut(duration: 0.3), value: isChangingLanguage)
+                
+                // In the input section where chair height and desk height are collected, add AR measurement buttons
+                // Find the section where the chair height input is and add:
+                CustomTextField(title: "current_chair", text: $currentChairHeight, width: nil)
+                    .focused($focusedField, equals: .chairHeight)
+                    .padding(.horizontal)
+                
+                Button(action: {
+                    selectedMeasurementType = .chairHeight
+                    arMeasurementController.startMeasurement(type: .chairHeight)
+                    showARMeasurement = true
+                }) {
+                    Label("measure_with_ar".localized(using: languageSettings), systemImage: "ruler")
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .padding(.horizontal)
+                
+                // Find the section where the desk height input is and add:
+                CustomTextField(title: "current_desk", text: $currentDeskHeight, width: nil)
+                    .focused($focusedField, equals: .deskHeight)
+                    .padding(.horizontal)
+                
+                Button(action: {
+                    selectedMeasurementType = .tableHeight
+                    arMeasurementController.startMeasurement(type: .tableHeight)
+                    showARMeasurement = true
+                }) {
+                    Label("measure_with_ar".localized(using: languageSettings), systemImage: "ruler")
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .padding(.horizontal)
                 
                 // Optimal Heights Display
                 if let height = personHeightValue {
@@ -342,6 +384,21 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default.publisher(for: .languageChanged)) { _ in
             // Create a new UUID to force the view to refresh
             refreshID = UUID()
+        }
+        // Add sheet presentation for AR measurement
+        .sheet(isPresented: $showARMeasurement) {
+            ARMeasurementView(measurementController: arMeasurementController)
+                .environmentObject(languageSettings)
+                .onDisappear {
+                    if let result = arMeasurementController.measurementResult {
+                        switch selectedMeasurementType {
+                        case .chairHeight:
+                            currentChairHeight = String(format: "%.1f", result)
+                        case .tableHeight:
+                            currentDeskHeight = String(format: "%.1f", result)
+                        }
+                    }
+                }
         }
     }
 }
