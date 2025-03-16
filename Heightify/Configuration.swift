@@ -4,6 +4,10 @@ import RealityKit
 
 class ARConfiguration {
     static func checkARCapabilities() -> Bool {
+        #if os(visionOS)
+        // On visionOS, we don't use ARKit
+        return false
+        #else
         // Check if AR is supported on this device
         if !ARWorldTrackingConfiguration.isSupported {
             print("AR World Tracking is not supported on this device")
@@ -31,10 +35,12 @@ class ARConfiguration {
         @unknown default:
             return false
         }
+        #endif
     }
     
     static func setupARView(_ arView: ARView) {
-        // Configure AR session
+        #if !os(visionOS)
+        // Configure AR session only for non-visionOS platforms
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.horizontal, .vertical]
         
@@ -49,6 +55,7 @@ class ARConfiguration {
         // Setup debug options for development
         #if DEBUG
         arView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
+        #endif
         #endif
     }
 } 
