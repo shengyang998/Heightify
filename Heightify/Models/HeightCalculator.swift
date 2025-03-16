@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 class HeightCalculator {
     /// Represents furniture measurement results in centimeters
@@ -6,12 +7,9 @@ class HeightCalculator {
         let chairHeight: Double
         let deskHeight: Double
         
-        var description: String {
-            return """
-            Recommended heights:
-            - Chair height: \(String(format: "%.1f", chairHeight)) cm
-            - Desk height: \(String(format: "%.1f", deskHeight)) cm
-            """
+        func description(using languageSettings: LanguageSettings) -> String {
+            let template = "Recommended heights:\n- Chair height: %.1f cm\n- Desk height: %.1f cm"
+            return String(format: template.localized(using: languageSettings), chairHeight, deskHeight)
         }
     }
     
@@ -46,41 +44,46 @@ class HeightCalculator {
     static func analyzeCurrentSetup(
         personHeight: Double,
         currentChairHeight: Double,
-        currentDeskHeight: Double
+        currentDeskHeight: Double,
+        languageSettings: LanguageSettings
     ) -> String {
         let optimal = calculateOptimalHeights(personHeight: personHeight)
         
         let chairDifference = currentChairHeight - optimal.chairHeight
         let deskDifference = currentDeskHeight - optimal.deskHeight
         
-        let chairStatus = getStatusDescription(difference: chairDifference, itemName: "chair")
-        let deskStatus = getStatusDescription(difference: deskDifference, itemName: "desk")
+        let chairStatus = getStatusDescription(difference: chairDifference, itemName: "chair".localized(using: languageSettings), languageSettings: languageSettings)
+        let deskStatus = getStatusDescription(difference: deskDifference, itemName: "desk".localized(using: languageSettings), languageSettings: languageSettings)
         
-        return """
+        let template = """
         Current Setup Analysis:
         
         Chair Height:
-        - Current: \(String(format: "%.1f", currentChairHeight)) cm
-        - Optimal: \(String(format: "%.1f", optimal.chairHeight)) cm
-        \(chairStatus)
+        - Current: %.1f cm
+        - Optimal: %.1f cm
+        %@
         
         Desk Height:
-        - Current: \(String(format: "%.1f", currentDeskHeight)) cm
-        - Optimal: \(String(format: "%.1f", optimal.deskHeight)) cm
-        \(deskStatus)
+        - Current: %.1f cm
+        - Optimal: %.1f cm
+        %@
         """
+        
+        return String(format: template.localized(using: languageSettings),
+                     currentChairHeight, optimal.chairHeight, chairStatus,
+                     currentDeskHeight, optimal.deskHeight, deskStatus)
     }
     
-    private static func getStatusDescription(difference: Double, itemName: String) -> String {
+    private static func getStatusDescription(difference: Double, itemName: String, languageSettings: LanguageSettings) -> String {
         let absDifference = abs(difference)
         if absDifference < 1 {
-            return "✅ Your \(itemName) height is optimal"
+            return String(format: "✅ Your %@ height is optimal".localized(using: languageSettings), itemName)
         } else if absDifference < 2.5 {
-            let direction = difference > 0 ? "lower" : "higher"
-            return "⚠️ Consider adjusting your \(itemName) \(direction) by \(String(format: "%.1f", absDifference)) cm"
+            let direction = difference > 0 ? "lower".localized(using: languageSettings) : "higher".localized(using: languageSettings)
+            return String(format: "⚠️ Consider adjusting your %@ %@ by %.1f cm".localized(using: languageSettings), itemName, direction, absDifference)
         } else {
-            let direction = difference > 0 ? "too high" : "too low"
-            return "❌ Your \(itemName) is \(direction) by \(String(format: "%.1f", absDifference)) cm"
+            let direction = difference > 0 ? "too high".localized(using: languageSettings) : "too low".localized(using: languageSettings)
+            return String(format: "❌ Your %@ is %@ by %.1f cm".localized(using: languageSettings), itemName, direction, absDifference)
         }
     }
 } 
